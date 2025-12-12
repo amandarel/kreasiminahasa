@@ -1,6 +1,6 @@
 **Project Magang: Website Kreasi Minahasa**
 
-Halo semua, website ini merupakan proyek magang saya di Semester 5, dengan fokus memberikan 
+Halo semua, website ini merupakan proyek magang saya di Semester 5, website ini bertujuan untuk memberikan 
 informasi terkait Ekonomi Kreatif yang ada di Kabupaten Minahasa
 
 **Teknologi yang digunakan**
