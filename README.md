@@ -1,16 +1,16 @@
-**Project Magang: Website Kreasi Minahasa**
+🚀**Project Magang: Website Kreasi Minahasa**
 
 Halo semua, website ini merupakan proyek magang saya di Semester 5, website ini bertujuan untuk memberikan 
 informasi terkait Ekonomi Kreatif yang ada di Kabupaten Minahasa
 
-**Teknologi yang digunakan**
+🛠️**Teknologi yang digunakan**
 
 Proyek ini dibangun menggunakan kombinasi teknologi berikut:
 - Backend: Flask (Python Framework)
 - Frontend: HTML, CSS, JavaScript, Bootstrap
 - Database: MySQL
 
-**Fitur Utama**
+✨**Fitur Utama**
 
 🏠 Home: Halaman utama yang menampilkan beberapa Ekonomi Kreatif Kabupaten Minahasa, 
           selain itu pada halaman home ditampilkan deskripsi singkat terkait Dinas Kebudayaan dan Pariwisata Kabupaten Minahasa yang bertugas dalam mengelola ekonomi kreatif di kabupaten Minahasa,
