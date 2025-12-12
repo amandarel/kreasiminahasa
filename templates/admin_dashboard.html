@@ -1,0 +1,192 @@
+{% extends 'baseadmin.html' %}
+
+{% block content %}
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show mt-3" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <h1>Admin Dashboard</h1>
+    <form method="POST" action="{{ url_for('add_destination') }}" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <h3>Tambah Destinasi Baru</h3>
+        <div class="form-group">
+            {{ form.nama.label }}
+            {{ form.nama(class="form-control") }}
+            {% if form.nama.errors %}
+            <ul class="errors">
+                {% for error in form.nama.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.slug.label }}
+            {{ form.slug(class="form-control") }}
+            {% if form.slug.errors %}
+            <ul class="errors">
+                {% for error in form.slug.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.deskripsi_singkat.label }}
+            {{ form.deskripsi_singkat(class="form-control") }}
+            {% if form.deskripsi_singkat.errors %}
+            <ul class="errors">
+                {% for error in form.deskripsi_singkat.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.deskripsi_lengkap.label }}
+            {{ form.deskripsi_lengkap(class="form-control") }}
+            {% if form.deskripsi_lengkap.errors %}
+            <ul class="errors">
+                {% for error in form.deskripsi_lengkap.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.tipe.label }}
+            {{ form.tipe(class="form-control") }}
+            {% if form.tipe.errors %}
+            <ul class="errors">
+                {% for error in form.tipe.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.lokasi.label }}
+            {{ form.lokasi(class="form-control") }}
+            {% if form.lokasi.errors %}
+            <ul class="errors">
+                {% for error in form.lokasi.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.kontak.label }}
+            {{ form.kontak(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.status.label }}
+            {{ form.status(class="form-control") }}
+            {% if form.status.errors %}
+            <ul class="errors">
+                {% for error in form.status.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+             
+        <div class="form-group">
+            {{ form.map_embed_url.label }}
+            {{ form.map_embed_url(class="form-control") }}
+            {% if form.map_embed_url.errors %}
+            <ul class="errors">
+                {% for error in form.map_embed_url.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.nomor_telepon.label }}
+            {{ form.nomor_telepon(class="form-control") }}
+            {% if form.nomor_telepon.errors %}
+            <ul class="errors">
+                {% for error in form.nomor_telepon.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+         </div>
+         
+        <div class="form-group">
+            {{ form.gambar.label }}
+            {{ form.gambar(class="form-control-file") }}
+            {% if form.gambar.errors %}
+            <ul class="errors">
+                {% for error in form.gambar.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+
+        {{ form.submit(class="btn ") }}
+    </form>
+
+    <h2>Daftar Destinasi</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nama</th>
+                    <th>Slug</th>
+                    <th>Gambar</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for destination in destinations_data %}
+                <tr>
+                    <td>{{ destination['id_destinasi'] }}</td>
+                    <td>{{ destination['nama'] }}</td>
+                    <td>{{ destination['slug'] }}</td>
+                    <td>
+                        {% if destination['gambar'] %}
+                        <img src="{{ url_for('static', filename=destination['gambar']) }}" alt="{{ destination['nama'] }}"
+                            width="100">
+                        {% else %}
+                        Tidak Ada Gambar
+                        {% endif %}
+                    </td>
+                    <td>
+                    <a href="{{ url_for('edit_destination', id_destinasi=destination['id_destinasi']) }}"
+                        class="edit btn-sm btn-warning">Edit</a>
+                    <form method="POST" action="{{ url_for('delete_destination', id_destinasi=destination['id_destinasi']) }}"
+                        style="display: inline-block;">
+                        {{ delete_form.csrf_token }}
+                        <button type="submit" class="btn btn-sm btn-danger delete-button"
+                            onclick="return confirm('Apakah Anda yakin ingin menghapus destinasi ini?')">Hapus</button>
+                    </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

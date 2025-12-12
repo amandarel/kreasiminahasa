@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dinas Kebudayaan dan Pariwisata{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <img src="{{ url_for('static', filename='uploads/images/logo.png') }}" alt="Logo Dinas Pariwisata">
+            <h1>Selamat Datang</h1>
+            <p>Menjelajahi Berbagai Jenis Ekonomi Kreatif Kabupaten Minahasa</p>
+            <div class="spinner"></div> 
+        </div>
+    </div> 
+
+    <!-- <div class="top-navbar py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><i class="fas fa-phone"></i> (123) 456789</li>
+                        <li class="list-inline-item"><i class="fas fa-envelope"></i> disbudpar</li>
+                    </ul>
+                    </div>
+                <div class="col-md-6 text-right">
+                    <div class="social-media-top">
+                        <a href="https://www.facebook.com/disbudpar.kabupaten.minahasa" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@disbudpar.minahasa?_t=ZS-90mSyoz8i4O_r=1" target="_blank" rel="noopener noreferrer" title="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/disbudpar_minahasa?utm_source=ig_web_button_share_sheetigsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-custom">  
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ url_for('static', filename='uploads/images/logo.png') }}" alt="Logo" height="50"> 
+                    KREASI MINAHASA
+                </a>
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link {{ 'active' if request.endpoint == 'index' else '' }}" 
+                            href="{{ url_for('index') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ 'active' if request.endpoint in ['destinasi_list', 'detail_destinasi'] else '' }}" 
+                            href="{{ url_for('destinasi_list') }}">Destinasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ 'active' if request.endpoint == 'about' else '' }}" 
+                            href="{{ url_for('about') }}">About</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link {{ 'active' if request.endpoint == 'kontak' else '' }}" 
+                        href="{{ url_for('kontak') }}">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-2 pt-2"> 
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <img src="{{ url_for('static', filename='uploads/images/logo.png') }}" alt="Logo Dinas Kebudayaan dan Pariwisata" height="70" >
+                    <h5 class="mb-3">Dinas Kebudayaan dan Pariwisata Kabupaten Minahasa</h5>
+                    <p class="text-justify">
+                        Dinas Kebudayaan dan Pariwisata Kabupaten Minahasa merupakan Perangkat Daerah
+                        yang melaksanakan urusan pemerintahan di bidang Kebudayaan dan Pariwisata.</p>
+                    </div>
+                    
+                <div class="col-md-4 mb-3">
+                    <h4>Navigasi Cepat</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-light">Beranda</a></li>
+                        <li><a href="/destinasi" class="text-light">Destinasi Wisata</a></li>
+                        <li><a href="/about" class="text-light">Tentang Kami</a></li>
+                        <li><a href="/kontak" class="text-light">Kontak</a></li>
+                        <li><a href="/login" class="text-light">Login</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <h4>Alamat</h4>
+                    <!-- <p><i class="fas fa-phone"></i> (08) 2345 2123</p> -->
+                    <!-- <p><i class="fas fa-envelope"></i> <a href="mailto:disbudpar@com" class="text-light">disbudpar@com</a></p> -->
+                    <p><i class="fas fa-map-marker-alt"></i> Jalan Manguni No. 15, Kelurahan Wewelen, Kecamatan Tondano Barat, Kabupaten Minahasa.</p>
+                    <div class="social-media-icons">
+                        <a href="https://www.facebook.com/disbudpar.kabupaten.minahasa" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@disbudpar.minahasa?_t=ZS-90mSyoz8i4O_r=1" target="_blank" title="Tiktok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/disbudpar_minahasa?utm_source=ig_web_button_share_sheetigsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center border-top py-3">
+            <p class="mb-0">&copy; 2025 Aurelia Amanda. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

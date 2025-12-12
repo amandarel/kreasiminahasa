@@ -1,0 +1,14 @@
+{% extends 'baseadmin.html' %}
+
+{% block title %}Daftar Kerajinan{% endblock %}
+
+{% block content %}
+    <h1>Daftar Kerajinan</h1>
+    <ul>
+        {% for craft_item in craft_items_data %}
+            <li>
+                {{ craft_item.nama_kerajinan }} - {{ craft_item.deskripsi }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

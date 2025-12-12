@@ -1,0 +1,75 @@
+{% extends 'baseadmin.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Detail Destinasi: {{ destination['nama'] }}</h1>
+    <p>Deskripsi: {{ destination['deskripsi_lengkap'] }}</p>
+
+    <h2>Tambah Produk Baru</h2>
+    <form method="POST" action="{{ url_for('add_product', id_destinasi=destination['id_destinasi']) }}" enctype="multipart/form-data">
+        {{form.csrf_token}}
+        <div class="form-group">
+            <label for="nama">Nama Produk:</label>
+            <input type="text" class="form-control" id="nama" name="nama" required>
+        </div>
+        <div class="form-group">
+            <label for="deskripsi">Deskripsi:</label>
+            <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="harga">Harga:</label>
+            <input type="number" class="form-control" id="harga" name="harga" required>
+        </div>
+        <div class="form-group">
+            <label for="gambar">Gambar:</label>
+            <input type="file" class="form-control-file" id="gambar" name="gambar">
+        </div>
+        <button type="submit" class="btn btn-success">Tambah Produk</button>
+    </form>
+
+    <h2>Daftar Produk</h2>
+    {% if barang %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Deskripsi</th>
+                        <th>Harga</th>
+                        <th>Gambar</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in barang %}
+                        <tr>
+                            <td>{{ item['id_kerajinan'] }}</td>
+                            <td>{{ item['nama'] }}</td>
+                            <td>{{ item['deskripsi'] }}</td>
+                            <td>{{ item['harga'] }}</td>
+                            <td>
+                                {% if item['gambar'] %}
+                                    <img src="{{ url_for('static', filename=item['gambar']) }}" alt="{{ item['nama'] }}" width="100">
+                                {% else %}
+                                    Tidak Ada Gambar
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{{ url_for('edit_product', id_kerajinan=item['id_kerajinan']) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <form method="POST" action="{{ url_for('delete_product', id_kerajinan=item['id_kerajinan']) }}" >
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>Tidak ada produk terkait dengan destinasi ini.</p>
+    {% endif %}
+
+    <a href="{{ url_for('admin_destinations') }}" class="btn btn-secondary">Kembali ke Daftar Destinasi</a>
+</div>
+{% endblock %}

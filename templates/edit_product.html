@@ -1,0 +1,28 @@
+{% extends 'baseadmin.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Edit Produk</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <label for="nama">Nama Produk:</label>
+            {{ form.nama(class="form-control", id="nama") }}
+        </div>
+        <div class="form-group">
+            <label for="deskripsi">Deskripsi:</label>
+            {{ form.deskripsi(class="form-control", id="deskripsi") }}
+        </div>
+        <div class="form-group">
+            <label for="harga">Harga:</label>
+            {{ form.harga(class="form-control", id="harga") }}
+        </div>
+        <div class="form-group">
+            <label for="gambar">Gambar:</label>
+            <input type="file" class="form-control-file" id="gambar" name="gambar">
+        </div>
+        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+        <a href="{{ url_for('admin_destinations') }}" class="btn btn-secondary">Batal</a>
+    </form>
+</div>
+{% endblock %}

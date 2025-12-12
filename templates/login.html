@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box login">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            {% set alert_class = 'alert-danger' if category == 'danger' else 'alert-success' %}
+                            <div class="alert alert-custom {{ alert_class }} alert-dismissible fade show" role="alert">
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <h1>Login Admin</h1>
+                {% if form.username.errors %}
+                    <div class="alert alert-custom alert-danger">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="input-box">
+                    {{ form.username(placeholder="Username", required=True) }}
+                    <i class="bx bxs-user"></i>
+                </div>
+                {% if form.password.errors %}
+                    <div class="alert alert-custom alert-danger">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="input-box">
+                    {{ form.password(placeholder="Password", required=True) }}
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <img src="{{ url_for('static', filename='uploads/images/logo.png') }}" alt="Logo" height="100">
+                <h1>Disbudpar Kabupaten Minahasa</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

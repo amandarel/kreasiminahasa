@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %}Destinasi Wisata{% endblock %} {%
+block content %}
+<section class="destinasi-page">
+  <div class="container">
+    <h1>Destinasi Ekonomi Kreatif</h1>
+    <p class="text-center mb-5">
+    Jelajahi berbagai Ekonomi Kreatif di Kabupaten Minahasa. </p>
+
+    <div class="row">
+      {% for destinasi in destinasi_list %}
+      <div class="col-md-4">
+        <div class="destinasi-card">
+          <img
+            src="{{ url_for('static', filename=destinasi['gambar'])}}"
+            alt="{{ destinasi['nama'] }}"
+            class="card-img-top"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ destinasi['nama'] }}</h5>
+            <p class="card-location">
+              <i class="fas fa-map-marker-alt"></i> {{ destinasi['lokasi'] }}
+            </p>
+            <p class="card-text">{{ destinasi['deskripsi_singkat'] }}</p>
+            <a
+              href="{{ url_for('detail_destinasi', slug=destinasi['slug']) }}"
+              class="btn btn-primary"
+              >View Details</a
+            >
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,288 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    background-color: #B40D1A !important;
+    border-right: 1px solid #dee2e6;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    min-height: 100vh;
+    padding:1rem;
+}
+
+.logo-container {
+    padding: 1rem;
+    text-align: center;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.nav-link {
+    color: #f8f9fa;
+    font-size:25px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #f8f9fa;
+    color: #B40D1A;
+    transition: background-color 0.3s ease;
+    border-radius: 12px;
+    transform: translateX(3px);
+}
+
+.container {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+}
+
+.container h1 {
+    color:#B40D1A;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.container h2 {
+    color:#B40D1A;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(180, 13, 27, 0.319);
+  transition: 0.3s ease;
+}
+
+form:hover {
+  transform: scale(1.01);
+}
+
+form h3 {
+  color: #B40D1A;
+  margin-bottom: 1.5rem;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+form .form-group {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 17px;
+  color: #B40D1A;
+  transition: border 0.3s;
+  font-weight: bold;
+}
+
+form .form-group .form-control:focus {
+    border-color: #db1828 !important;
+    box-shadow: 0 0 0 0.2rem rgba(180, 13, 26, 0.25) !important;
+    outline: 0;
+}
+
+form .btn {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #B40D1A;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form .btn:hover {
+  background-color: #d2303e;
+  color:#f8f9fa;
+}
+
+
+/* Gaya khusus untuk tombol hapus */
+.delete-button {
+  background-color: #B40D1A;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.delete-button:hover {
+  background-color: #d2303e;
+  color: white;
+}
+
+/* Gaya untuk tombol Edit */
+.edit {
+    background-color: #B40D1A;
+    border: none !important;
+    color: #212529;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.edit:hover {
+    background-color: #d2303e !important;
+    text-decoration: none !important;
+}
+
+.edit:active {
+    background-color: #d2303e !important;
+    text-decoration: none !important;
+}
+
+.container a{
+  width: auto;
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background-color: #B40D1A;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+
+.container a:hover{
+  background-color: #d2303e;
+  color:#f8f9fa;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover; 
+}
+
+/* Style tombol menu (hamburger) */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #B40D1A;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.menu-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle.menu-toggle-active {
+    color: #fff; 
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+    /* Tablet Landscape dan Portrait */
+    .container h1 {
+        font-size: 36px;
+    }
+
+    .container h2 {
+        font-size: 28px;
+    }
+
+  }
+  
+  @media (max-width: 768px) {
+    /* Tablet Portrait */
+    .container h1 {
+      font-size: 32px;
+    }
+    
+    .container h2 {
+      font-size: 24px;
+    }
+    
+    .card-img-top {
+      height: 250px;
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 250px;
+        height: 100vh;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+  
+    .sidebar.show {
+        transform: translateX(0);
+    }
+  
+    .content {
+        margin-left: 0;
+    }
+  
+    .menu-toggle {
+        display: block; /* Tampilkan tombol menu */
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 101;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #B40D1A;
+        cursor: pointer;
+    }
+  
+    .navbar {
+        padding-left: 2rem;
+    }
+  
+    .nav-link {
+      font-size: 20px;
+    }
+  
+    form {
+      padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Mobile */
+    .container h1 {
+        font-size: 28px;
+    }
+
+    .container h2 {
+        font-size: 22px;
+    }
+
+    .card-img-top {
+        height: 200px;
+    }
+}

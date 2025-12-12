@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Kontak Kami{% endblock %}
+
+{% block content %}
+<section class="contact-page">
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show mt-3" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h1 class="mb-4">Hubungi Kami</h1>
+
+        <!-- <div class="contact-info mb-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Alamat</h4>
+                        <p>Jalan Manguni, Desa Kembuan, Kecamatan Tondano Timur, Kabupaten Minahasa</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p><a href="mailto:disbudpar@com">disbudpar@com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form action="/submit_form" method="post">
+                        <div class="form-group">
+                            <label for="nama">Nama:</label>
+                            <input type="text" class="form-control" id="nama" name="nama" required placeholder="Nama Lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required placeholder="Alamat Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="pesan">Pesan:</label>
+                            <textarea class="form-control" id="pesan" name="pesan" rows="5" required placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        <a href="mailto:rayaadam2012@gmail.com?subject=Pesan%20dari%20Pengunjung%20Website&body=Halo%20Dinas%20Kebudayaan%20dan%20Pariwisata,%0A%0ASaya%20ingin%20menyampaikan:%0A%0A[Tulis%20pesan%20Anda%20di%20sini]" class="btn btn-primary btn-block">Kirim Pesan</a>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510562.4944121319!2d124.3036492890625!3d1.3137832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32871386c00e4d05%3A0x305da2760187373a!2sKantor%20Dinas%20Pariwisata%20dan%20Kebudayaan%20Kab.%20Minahasa!5e0!3m2!1sid!2sid!4v1760143152241!5m2!1sid!2sid" width="110%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

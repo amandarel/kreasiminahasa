@@ -1,0 +1,262 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 97.8vh;
+    background-image: url('../uploads/images/kabasaran.jpeg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    position: relative;
+    width: 850px;
+    height: 550px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0, .2);
+}
+
+.container .form-box {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    color:#0A0016;
+    text-align: center;
+    padding: 0 40px;
+    z-index: 1;
+}
+
+form {
+    width: 100%;
+}
+
+.container h1{
+    font-size: 36px;
+    margin: -10px 0;
+}
+
+.input-box{
+    position: relative;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 80%;
+    padding: 13px 50px 13px 20px;
+    background-color: #eee;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #0A0016;
+    font-weight: 500;
+}
+
+.input-box input::placeholder{
+    color: #888;
+    font-weight: 400;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888;
+}
+
+.btn {
+    width: 100%;
+    height: 48px;
+    background: #B40D1a;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0, .1);
+    border: none;
+    cursor:pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+} 
+
+.toggle-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #B40D1a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: flex-start; 
+    padding-left: 30px;
+    box-sizing: border-box; 
+}
+
+.toggle-panel img{
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px; 
+    align-items: center;
+    margin-left: 25%;
+}
+
+.toggle-panel h1 {
+    margin: 0 40px; 
+    color: #fff;
+    font-size: 40px;
+}
+
+.alert-custom {
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center; 
+}
+
+.alert-custom i {
+    margin-right: 10px;
+}
+
+.alert-danger {
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+    color: #B40D1A !important; 
+}
+
+.alert-success {
+    background-color: #d4edda !important;
+    border-color: #c3e6cb !important;
+    color: #155724 !important;
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: 95%; 
+        height: auto; 
+        min-height: auto;
+        display: flex;
+        flex-direction: column; 
+        overflow: hidden; 
+    }
+
+    .toggle-box {
+        position: relative; 
+        width: 100%;
+        height: 220px; 
+        overflow: hidden;
+    }
+
+    .toggle-panel {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        align-items: center; 
+        justify-content: center;
+        text-align: center;
+    }
+
+    .toggle-panel img {
+        margin-left: 0; 
+        margin-bottom: 15px;
+    }
+
+    .toggle-panel h1 {
+        font-size: 24px;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .container .form-box {
+        position: relative; 
+        width: 93%;
+        height: auto;
+        padding: 40px 25px;
+    }
+
+    .input-box input {
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+    .input-box i {
+        right: 15px; 
+    }
+    
+    .container h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .toggle-box {
+        height: 180px;
+    }
+    
+    .toggle-panel img {
+        height: 70px; 
+        width: auto;
+    }
+    
+    .toggle-panel h1 {
+        font-size: 20px;
+    }
+}
+
+
+.btn-primary {
+    background-color: #B40D1A; 
+    border-color: #B40D1A; 
+    color: white; 
+    font-weight: 600; 
+    padding: 1rem 2rem; /* Padding yang Lebih Besar */
+    border-radius: 8px; /* Sudut yang Lebih Membulat */
+    transition: all 0.3s ease-in-out; /* Transisi Halus */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); 
+    text-decoration: none; /* Hilangkan garis bawah default */
+}
+
+.btn-primary:hover {
+    background-color: #940a14; 
+    border-color: #940a14; 
+    color: white; 
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(255, 0, 0, 0.2) !important; 
+    text-decoration: none; 
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    outline: 0; 
+    box-shadow: 0 0 0 0.2rem rgba(180, 13, 26, 0.25) !important; 
+}
+
+.btn-primary:active,
+.btn-primary.active {
+    background-color: #940a14 !important; 
+    border-color: #940a14 !important;
+    outline: 0; 
+}

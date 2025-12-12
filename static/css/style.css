@@ -1,0 +1,1275 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+
+:root {
+    --accent-color: #f8f9fa;
+    --text-color: #343a40;
+}
+
+h1, h2, h3, h4, h5, h6, 
+.navbar-brand,
+.card-title,
+.detail-hero h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+    width: 100%;
+    overflow-x: hidden; 
+    padding: 0;
+    box-sizing: border-box;
+    /* padding-top: 90px; */
+}
+
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    transition: opacity 0.5s ease-out; 
+}
+
+.splash-screen.fade-out {
+    opacity: 0;
+    pointer-events: none; 
+}
+
+.splash-content {
+    text-align: center;
+}
+
+.splash-content img {
+    width: 150px; 
+    margin-bottom: 20px;
+}
+
+.splash-content h1 {
+    font-size: 2.9rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #B40D1A; 
+}
+
+.splash-content p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Animasi Loading (Contoh Sederhana) */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #B40D1A;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-top: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Top Navbar */
+/* .top-navbar {
+    font-size: 0.9rem;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: #B40D1A !important;
+}
+
+.top-navbar .list-inline-item {
+    margin-right: 15px;
+    color: #f8f9fa;
+}
+
+.top-navbar .list-inline-item:last-child {
+    margin-right: 0;
+}
+
+.top-navbar .social-media-top a {
+    color: #f8f9fa;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.top-navbar .social-media-top a:hover {
+    color: #f7939c!important;
+}
+
+.top-navbar i {
+    margin-right: 5px;
+} */
+
+/* Navbar */
+.navbar {
+    transition: all 0.3s ease-in-out; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    top:0;
+    left:0;
+    right: 0;
+    z-index: 99999;
+    font-family: 'Merriweather', serif !important;
+}
+
+.bg-custom {
+    background-color: #fff;  
+}
+
+.navbar-brand {
+    color: #0a0016 !important;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: #0A0016 !important;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    font-size: 20px;
+}
+
+.nav-link:hover {
+    color: #c1211f !important;
+}
+
+.nav-link.active {
+    color: #c1211f !important; 
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background-color: var(--accent-color);
+    padding: 9.3rem 8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    z-index: 0;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    /* color: #ff002b; */
+}
+
+/* Tombol */
+.btn-primary {
+    background-color: #B40D1A; 
+    border-color: #B40D1A; 
+    color: white; 
+    font-weight: 600; 
+    padding: 1rem 2rem; 
+    border-radius: 8px; 
+    transition: all 0.3s ease-in-out; 
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    text-decoration: none; 
+}
+
+.btn-primary:hover {
+    background-color: #940a14; 
+    border-color: #940a14; 
+    color: white; 
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(255, 0, 0, 0.2); 
+    text-decoration: none; 
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    outline: 0; 
+    box-shadow: 0 0 0 0.2rem rgba(180, 13, 26, 0.25); 
+}
+
+.btn-primary:active,
+.btn-primary.active {
+    background-color: #940a14 !important; 
+    border-color: #940a14 !important;
+    outline: 0; 
+}
+
+/* About Home Section */
+.about-home {
+    padding: 4rem 0;
+}
+
+.about-home h2 {
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #B40D1A; /* Warna tema Anda */
+}
+
+.about-home p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.about-home .img-fluid {
+    height: 400px !important;
+    width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.about-home .btn-secondary {
+    background-color: #B40D1A;
+    border-color: #B40D1A;
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.about-home .btn-secondary:hover {
+    background-color: #940a14;
+    border-color: #940a14;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(180, 12, 12, 0.2);
+}
+
+.about-home .btn-secondary:focus,
+.about-home .btn-secondary.focus {
+    outline: 0; 
+    box-shadow: 0 0 0 0.2rem rgba(180, 13, 26, 0.25) !important; 
+}
+
+.about-home .btn-secondary:active,
+.about-home .btn-secondary.active {
+    background-color: #940a14 !important; 
+    border-color: #940a14 !important;
+    outline: 0; 
+}
+
+/* Featured Crafts Section */
+.featured-crafts {
+    padding: 4rem 0;
+}
+
+.featured-crafts h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #B40D1A; 
+}
+
+.featured-crafts p.text-center {
+    font-size: 1.2rem;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.featured-crafts .craft-item {
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.679);
+    transition: transform 0.3s ease;
+    background-color: white;
+}
+
+.featured-crafts .craft-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+.featured-crafts .craft-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.featured-crafts .craft-item:hover img {
+    transform: scale(1.1);
+}
+
+.featured-crafts .craft-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1.5rem 1rem 0.5rem 1rem;
+    color: #B40D1A;
+    text-align: center;
+}
+
+.featured-crafts .craft-item p {
+    font-size: 1rem;
+    color: #777;
+    margin: 0 1rem 1.5rem 1rem;
+    text-align: center;
+}
+
+.featured-crafts .craft-item .btn-primary {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    width: fit-content;
+}
+
+
+/* Ukuran Tombol */
+.btn-lg {
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+}
+
+.btn-sm {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #B40D1A; 
+    padding: 30px 0;
+    font-size: 0.9rem;
+    text-align: center;
+    align-items: center;
+}
+
+footer h4 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #f8f9fa; 
+    margin-top: 10px;
+}
+
+footer h5 {
+    font-size: 1.32rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #f8f9fa; 
+    margin-top: 10px;
+}
+
+footer p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #ddd; /* Abu-abu lebih terang */
+}
+
+footer a {
+    color: #fff;
+    transition: color 0.3s ease; /* Efek transisi warna */
+}
+
+footer a:hover {
+    color: #c1211f; 
+    text-decoration: none; 
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+/* Social Media Icons */
+.social-media-icons {
+    margin-top: 20px;
+}
+
+.social-media-icons a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 35px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.434); 
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    padding-top: 10px;
+}
+
+.social-media-icons a[href*="facebook"] {
+     background-color: rgba(24, 118, 242, 0.750) !important; 
+    border-color: rgba(24, 118, 242, 0.750) !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(24, 119, 242, 0.5); 
+}
+
+.social-media-icons a[href*="instagram"] {
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, rgb(253, 244, 151, 0.765) 0%, rgba(253, 244, 151, 0.765) 5%, rgba(253, 88, 73, 0.765) 45%, rgba(214, 36, 158, 0.765) 60%, rgba(40, 89, 235, 0.765) 90%) !important;
+    border-color: transparent !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(214, 36, 159, 0.5); /* Efek cahaya pink/ungu */
+}
+
+.social-media-icons a:hover {
+    background-color: rgb(193, 33, 31); 
+    color: #fff;
+    transform: translateY(-3px); 
+}
+
+.social-media-icons a[href*="facebook"]:hover {
+    background-color: #1877F2 !important; /* Biru Facebook */
+    border-color: #1877F2 !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(24, 119, 242, 0.5); /* Efek cahaya biru */
+}
+
+.social-media-icons a[href*="instagram"]:hover {
+    background: #d6249f; /* Warna cadangan */
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important;
+    border-color: transparent !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(214, 36, 159, 0.5); /* Efek cahaya pink/ungu */
+}
+
+.social-media-icons i {
+    font-size: 1.2rem;
+}
+
+/* Copyright */
+footer .border-top {
+    border-color: rgba(255, 255, 255, 0.1) !important; /* Garis pemisah */
+}
+
+footer .text-center {
+    color: #aaa; 
+    text-align: center;
+}
+
+.about-us {
+    padding: 3rem 0;
+    background-color: var(--accent-color); /* Gunakan variabel warna */
+}
+
+.about-us h2 {
+    font-size: 2.5rem !important;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #B40D1A; 
+}
+
+.about-us p {
+    font-size: 1.1rem !important;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* .about-us h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--primary-color); 
+} */
+
+
+.about-us .img-fluid {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    height: 400px !important;
+    width: 900px;
+}
+
+.vision-mission {
+    margin-top: 20px;
+    padding: 40px 0;
+    background-color: #f8f9fa;
+}
+
+    .vision-mission h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #B40D1A;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+.structure {
+    margin-top: 20px;
+    padding: 40px 0;
+    background-color: #f8f9fa; 
+}
+
+.structure h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #B40D1A;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+    .card-header h6 {
+        color: #B40D1A !important;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .card {
+        border: none;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-header {
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-body p, .card-body ol {
+        margin-bottom: 0;
+        font-size: 18px;
+    }
+
+.destinasi h1{
+    text-align: center;
+    font-weight: bold;
+    color: #B40D1A;
+    font-size: 2.5rem;
+}
+
+/* Contact Page */
+.contact-page {
+    padding: 1rem 0;
+}
+
+.contact-page h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #B40D1A; 
+}
+
+.contact-page p {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #555;
+}
+
+/* Contact Info */
+.contact-info .info-box {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 2rem;
+}
+
+.contact-info .info-box i {
+    font-size: 2rem;
+    color: #B40D1A; /* Warna Ikon Mirip Tema */
+    margin-bottom: 1rem;
+}
+
+.contact-info .info-box h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.contact-info .info-box p {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Contact Form */
+.contact-form {
+    background-color: #f8f9fa;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.contact-form h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #B40D1A; 
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-form .form-control {
+    border-radius: 0.25rem;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    font-weight: 500;
+}
+
+.contact-form textarea.form-control {
+    resize: vertical;
+}
+
+/* Destinasi Page */
+.destinasi-page {
+    padding: 2rem 0;
+}
+
+.destinasi-page h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #B40D1A; /* Warna tema Anda */
+}
+
+.destinasi-page p.text-center {
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+/* Destinasi Card */
+.destinasi-card {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.679);
+    transition: transform 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.destinasi-card:hover {
+    transform: translateY(-5px);
+}
+
+.destinasi-card .card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.destinasi-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.destinasi-card .card-body {
+    padding: 1.5rem;
+}
+
+.destinasi-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.destinasi-card .card-location {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.destinasi-card .card-location i {
+    margin-right: 0.3rem;
+}
+
+.destinasi-card .card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.destinasi-card .btn-primary {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    width: fit-content;
+}
+
+/* Detail Page Styles */
+.detail-page {
+  padding: 3rem 0;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+
+.detail-hero {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 40px;
+}
+
+.detail-hero img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.detail-hero:hover img {
+  transform: scale(1.05);
+}
+
+.detail-hero h1 {
+ position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background: rgba(180, 13, 27, 0.567);
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 2rem;
+  backdrop-filter: blur(4px);
+  letter-spacing: 1px; 
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.detail-hero h1:hover {
+  background: rgb(180, 13, 27); 
+  transform: translateX(-50%) translateY(-3px); 
+}
+
+.detail-body h3 {
+  color: #2a2a2a;
+  font-weight: 600;
+  margin-top: 25px;
+  border-left: 4px solid #B40D1A;
+  padding-left: 10px;
+}
+
+.detail-body p {
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+.map-container {
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 150%;
+  max-width: 1050px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-list {
+  width: 150%;
+  max-width: 1050px;
+  margin: 0 auto 2rem auto;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.product-list li {
+  background-color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.review-form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 150%;
+  max-width: 1050px;
+  padding: 25px;
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  background-color: #f9f9f9; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+}
+
+.review-form .form-group {
+  margin-bottom: 15px;
+}
+
+.review-form .form-label {
+  font-weight: bold;
+}
+
+.review-form .form-control {
+  border-radius: 3px;
+}
+
+.review-form .btn-primary {
+  background-color: #B40D1A;
+  border-color: #B40D1A;
+  transition: background-color 0.2s ease; 
+}
+.review-form .btn-primary:hover {
+  background-color: #940a14; 
+  border-color: #940a14;
+}
+
+/* Daftar Ulasan */
+.review-list {
+  list-style: none;
+  padding: 0;
+}
+
+.review-item {
+  margin-bottom: 15px;
+  padding: 15px; /* Ruang di dalam item ulasan */
+  border: 1px solid #ddd; /* Garis tepi */
+  border-radius: 5px; /* Sudut membulat */
+  background-color: #fff; /* Latar belakang putih */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Efek bayangan halus */
+}
+
+.review-item strong {
+  font-weight: bold;
+  display: block; /* Membuat nama pengguna menjadi blok */
+  margin-bottom: 5px;
+}
+
+.review-item small {
+  color: #777;
+  display: block; /* Membuat tanggal menjadi blok */
+  margin-bottom: 5px;
+}
+
+.review-item p {
+  margin-top: 0; /* Hapus margin atas default */
+}
+
+/* ---------- Side Info ---------- */
+/* .side-info {
+  background: linear-gradient(145deg, #fff, #f8f8f8);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 100px;
+}
+
+.side-info h3 {
+  margin-top: 0;
+  color: #444;
+} */
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.whatsapp-button i {
+  font-size: 1.3rem;
+}
+
+.whatsapp-button:hover {
+  background-color: #20b857;
+  transform: scale(1.05);
+  text-decoration: none;
+  color: #fff;
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Contact Map */
+/* .contact-map {
+    border-radius: 0.5rem;
+    overflow: hidden; 
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.contact-map h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #B40D1A; 
+} */
+
+.detail-section-heading {
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  list-style: none;
+  padding: 0;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Mengatur item produk rata kiri */
+}
+
+.product-list .product-item {  
+  margin-bottom: 1em;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  width: calc(50% - 1em); 
+  box-sizing: border-box; 
+  margin-right: 1em; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+}
+
+.product-list .product-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-list .product-item strong { 
+  font-size: 1.2em;
+  color: #D84339;
+  text-align: center; 
+}
+
+.product-list .product-item p { 
+  margin-top: 0.5em;
+  color: #555;
+  text-align: center; 
+}
+
+.product-list .product-item .product-image {  
+  width: 150px; 
+  height: 150px;
+  object-fit: cover; 
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+}
+/* Animasi Loading (Opsional - jika daftar produk dimuat secara asinkron) */
+.loading-animation {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+}
+
+/* Responsif */
+@media (max-width: 1000px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+     #hero {
+        height: 400px;
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+
+     .featured-crafts .craft-item img {
+        height: 200px;
+     }
+
+    .custom-toggler {
+        border-color: rgba(10, 0, 22, 0.841) !important;
+    }
+
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(10, 0, 22, 0.841)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* .top-navbar .text-left, .top-navbar .text-right {
+        text-align: center !important;
+    }
+
+    .top-navbar .list-inline-item {
+        margin-right: 5px;
+    }
+
+    .top-navbar .list-inline {
+        margin-bottom: 0.5rem !important;
+    } */
+
+     .destinasi-card .card-img-top {
+        height: 200px;
+    }
+
+     .detail-hero img {
+        height: 300px;
+    }
+
+    .login-container {
+        margin-top: 15%;
+    }
+
+    .map-container, 
+    .review-form,
+    .product-list {
+        margin-top: 15px;
+        margin-left: 0 !important; 
+        margin-right: 0 !important;
+        width: 150% !important; 
+        max-width: 150% !important; 
+        box-sizing: border-box; 
+        border-radius: 12px;
+    }
+
+    .contact-map {
+        margin-top: 15px;
+        margin-left: 0 !important; 
+        margin-right: 0 !important;
+        width: 90% !important; 
+        max-width: 90% !important; 
+        box-sizing: border-box; 
+        border-radius: 12px;
+    }
+    
+    .product-list .product-item {  
+        border-radius: 15px;
+        margin-right: 4%; 
+    }
+
+    .whatsapp-button {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .about-home, .about-us h2 {
+    font-size: 2rem;
+    }
+
+    .about-home, .about-us p {
+        font-size: 0.9rem;
+    }
+
+    .about-home .img-fluid {
+        height: 300px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-home .img-fluid,
+    .about-us .img-fluid {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100%;
+    }
+
+    .featured-crafts .craft-item img {
+        height: 180px;
+    }
+
+    .destinasi-card .card-img-top {
+        height: 200px;
+    }
+
+    .detail-hero img {
+        height: 300px;
+    }
+
+    .login-container {
+        margin-top: 15%;
+    }
+
+    .map-container, 
+    .review-form,
+    .product-list {
+        margin-top: 15px;
+        margin-left: 0 !important; 
+        margin-right: 0 !important;
+        width: 100% !important; 
+        max-width: 100% !important; 
+        box-sizing: border-box; 
+        border-radius: 12px;
+    }
+    
+    .contact-map {
+        margin-top: 15px;
+        margin-left: 0 !important; 
+        margin-right: 0 !important;
+        width: 90% !important; 
+        max-width: 90% !important; 
+        box-sizing: border-box; 
+        border-radius: 12px;
+    }
+    .product-list .product-item {  
+      border-radius: 15px;
+      margin-right: 4%;
+    }
+
+    .whatsapp-button {
+        bottom: 20px;
+        right: 20px; 
+        padding: 10px 15px;
+        font-size: 0.9rem; 
+        z-index: 99999;
+    }
+
+    .about-home h2, .about-us h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .about-home p, .about-us p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 500px) {
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero {
+        padding: 6rem 1rem 3rem 1rem;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .map-container, 
+    .contact-map, 
+    .review-form,
+    .product-list {
+        width: 100% !important;
+        margin: 10px auto !important;
+        padding: 15px !important;
+        border-radius: 8px;
+    }
+    
+    .detail-hero h1 {
+        font-size: 1.2rem;
+        width: 90%;
+        padding: 8px;
+    }
+
+    .product-list .product-item {
+        width: 100%;
+        margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .featured-crafts .craft-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .about-home .img-fluid, 
+    .about-us .img-fluid {
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    .whatsapp-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        border-radius: 25px;
+    }
+    
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.6rem !important; }
+    h3 { font-size: 1.3rem !important; }
+    p {font-size: 1rem !important;}
+    
+    .vision-mission ol li{
+        font-size: 0.9rem !important;
+    }
+    .navbar-brand {
+        font-size: 18px;
+    }
+    
+    .splash-content img {
+        width: 100px;
+    }
+    
+    .splash-content h1 {
+        font-size: 1.8rem;
+    }
+}
