@@ -24,3 +24,13 @@ Proyek ini dibangun menggunakan kombinasi teknologi berikut:
 
 🔐 Login Admin: Area khusus admin untuk memanajemen konten-konten di dalam website.
 
+**Gambaran Tampilan Website**
+
+<img width="1800" height="801" alt="Screenshot (325)" src="https://github.com/user-attachments/assets/80a82348-cbea-4444-9a97-f3e87950b2a2" />
+
+<img width="2400" height="1690" alt="kreasiminahasa com_destinasi (1)" src="https://github.com/user-attachments/assets/71ae0d88-8600-4d11-a632-880a0d956853" />
+
+<img width="2400" height="1690" alt="kreasiminahasa com_kontak (1)" src="https://github.com/user-attachments/assets/b2d3aa44-3fc6-42b7-b158-a39b422f43f6" />
+
+
+
