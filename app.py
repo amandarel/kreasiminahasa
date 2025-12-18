@@ -12,10 +12,9 @@ from PIL import Image
 import re
 import unicodedata
 from flask_wtf.csrf import CSRFProtect
-import logging  # Import the logging module
+import logging 
 
-# Configure logging
-logging.basicConfig(level=logging.DEBUG,  # Set the logging level to DEBUG
+logging.basicConfig(level=logging.DEBUG,  
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 def slugify(text):
@@ -24,16 +23,14 @@ def slugify(text):
         'ascii', 'ignore').decode('ascii')
     text = re.sub(r'[^\w\s-]', '', text).strip().lower()
     text = re.sub(r'[-\s]+', '-', text)
-    # Tambahkan penggantian karakter khusus (opsional)
-    text = text.replace(' ', '-')  # contoh spasi
-    text = text.replace('&', 'dan')  # contoh &
+    text = text.replace(' ', '-')  
+    text = text.replace('&', 'dan')  
     return text
 
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
 
-# Konfigurasi Database
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
@@ -42,10 +39,8 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
 
-# Konfigurasi Session
 app.secret_key = os.urandom(24)
 
-# Konfigurasi Upload Gambar
 UPLOAD_FOLDER = 'static/uploads/destination_images'
 THUMBNAIL_FOLDER = 'static/uploads/destination_thumbnails'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -58,7 +53,6 @@ os.makedirs(THUMBNAIL_FOLDER, exist_ok=True)
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# Helper function untuk membuat thumbnail
 def create_thumbnail(filepath, maxsize=(200, 200)):
     try:
         img = Image.open(filepath)

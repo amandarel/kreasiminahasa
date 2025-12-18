@@ -232,11 +232,11 @@ form {
     border-color: #B40D1A; 
     color: white; 
     font-weight: 600; 
-    padding: 1rem 2rem; /* Padding yang Lebih Besar */
-    border-radius: 8px; /* Sudut yang Lebih Membulat */
-    transition: all 0.3s ease-in-out; /* Transisi Halus */
+    padding: 1rem 2rem; 
+    border-radius: 8px; 
+    transition: all 0.3s ease-in-out;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); 
-    text-decoration: none; /* Hilangkan garis bawah default */
+    text-decoration: none; 
 }
 
 .btn-primary:hover {

@@ -110,8 +110,6 @@ form .btn:hover {
   color:#f8f9fa;
 }
 
-
-/* Gaya khusus untuk tombol hapus */
 .delete-button {
   background-color: #B40D1A;
   border: none;
@@ -128,7 +126,6 @@ form .btn:hover {
   color: white;
 }
 
-/* Gaya untuk tombol Edit */
 .edit {
     background-color: #B40D1A;
     border: none !important;
@@ -176,7 +173,6 @@ form .btn:hover {
   object-fit: cover; 
 }
 
-/* Style tombol menu (hamburger) */
 .menu-toggle {
     display: none;
     position: fixed;
@@ -202,7 +198,6 @@ form .btn:hover {
 
 /* Responsif */
 @media (max-width: 992px) {
-    /* Tablet Landscape dan Portrait */
     .container h1 {
         font-size: 36px;
     }
@@ -214,7 +209,6 @@ form .btn:hover {
   }
   
   @media (max-width: 768px) {
-    /* Tablet Portrait */
     .container h1 {
       font-size: 32px;
     }
@@ -247,7 +241,7 @@ form .btn:hover {
     }
   
     .menu-toggle {
-        display: block; /* Tampilkan tombol menu */
+        display: block; 
         position: fixed;
         top: 1rem;
         left: 1rem;
@@ -273,7 +267,6 @@ form .btn:hover {
 }
 
 @media (max-width: 576px) {
-    /* Mobile */
     .container h1 {
         font-size: 28px;
     }

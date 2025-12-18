@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // Efek Smooth Scrolling
   $("a").on('click', function(event) {
     if (this.hash !== "") {
       event.preventDefault();
@@ -12,7 +11,6 @@ $(document).ready(function() {
     }
   });
 
-  // Splash Screen
   if (localStorage.getItem('splashShown') !== 'true') {
     $('#splash-screen').show();
 
